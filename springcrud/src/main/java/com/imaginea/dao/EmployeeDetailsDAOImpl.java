@@ -19,6 +19,7 @@ public class EmployeeDetailsDAOImpl implements EmployeeDetailsDAO {
 	}
 
 	public List<EmployeeDetails> readEmployeeDetail() {
+		System.out.println("in dao readempdetails");
 		return sessionFactory.getCurrentSession().createQuery("from EmployeeDetails").list();
 	}
 
