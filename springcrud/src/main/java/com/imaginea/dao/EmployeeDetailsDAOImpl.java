@@ -27,16 +27,7 @@ public class EmployeeDetailsDAOImpl implements EmployeeDetailsDAO {
 	}
 
 	@Transactional
-	public void updateEmployeeDetail(EmployeeDetails employee) {
-		System.out.println("in dao updateEmployeeDetail");
-		System.out.println("employee.id: " + employee.getId().toString());
-		System.out.println("employee.managerId: " + employee.getManagerId().toString());
-		System.out.println("employee.getFirstName: " + employee.getFirstName());
-		System.out.println("employee.getLastName: " + employee.getLastName());
-		System.out.println("employee.getEmail: " + employee.getEmail());
-		System.out.println("employee.getUserName: " + employee.getUserName());
-		
-		
+	public void updateEmployeeDetail(EmployeeDetails employee) {		
 		sessionFactory.getCurrentSession().update(employee);
 
 	}

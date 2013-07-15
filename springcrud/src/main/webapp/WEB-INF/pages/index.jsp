@@ -4,12 +4,16 @@
 <%@ page isELIgnored="false"%>
 </head>
 <body>
+	<c:if test="${!empty message}">
+		<h3>${message}</h3>
+	</c:if>
 	<c:if test="${!empty employees}">
-		<table class="data">
+		<table>
 			<tr>
 				<th>First Name</th>
 				<th>Last Name</th>
 				<th>E mail</th>
+				<th>&nbsp;</th>
 				<th>&nbsp;</th>
 			</tr>
 			<c:forEach items="${employees}" var="employee">
@@ -18,6 +22,7 @@
 					<td>${employee.lastName}</td>
 					<td>${employee.email}</td>
 					<td><a href="?action=edit&id=${employee.id}">edit</a></td>
+					<td><a href="?action=delete&id=${employee.id}">delete</a></td>
 				</tr>
 			</c:forEach>
 		</table>

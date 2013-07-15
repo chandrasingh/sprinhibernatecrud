@@ -18,30 +18,43 @@ import com.imaginea.services.EmployeeService;
 
 @Controller
 public class EmployeeDetailsController {
-	
+
 	@Autowired
 	EmployeeService employeeService;
-	
+
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String index(ModelMap model, HttpServletRequest request) {
 		System.out.println("in index");
 		String action = request.getParameter("action");
 		String strId = request.getParameter("id");
-		if(action!= null && action.equals("edit")){
-			Integer id = new Integer(strId);
+		Integer id;
+		EmployeeDetails employee;
+		
+		if (action != null && action.equals("edit")) {
+			id = new Integer(strId);
 			model.addAttribute(action, employeeService.getEmployeeDetail(id));
 		}
-		
-		List<EmployeeDetails> employeeList = employeeService.readEmployeeDetail();
-		
+		else if(action != null && action.equals("delete")){
+			id = new Integer(strId);
+			employee = employeeService.getEmployeeDetail(id);
+			if(employee != null){
+				employeeService.deleteEmployeeDetail(employee);
+				model.addAttribute("message", "Employee "+ employee.getFirstName() +" with email id " + employee.getEmail() + " was successfull deleted.");
+			}else{
+				model.addAttribute("message", "Employee id " + strId + " was not found!");
+			}
+		}
+
+		List<EmployeeDetails> employeeList = employeeService
+				.readEmployeeDetail();
+
 		model.addAttribute("employees", employeeList);
 		return "index";
 	}
-	
+
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
-    public String update(HttpServletRequest request) {
+	public String update(HttpServletRequest request) {
 		System.out.println("in update");
-		System.out.println("firstName: " + request.getParameter("firstName"));
 
 		String id = request.getParameter("id");
 		String managerID = request.getParameter("managerID");
@@ -49,7 +62,7 @@ public class EmployeeDetailsController {
 		String lastName = request.getParameter("lastName");
 		String userName = request.getParameter("userName");
 		String email = request.getParameter("email");
-		
+
 		EmployeeDetails employeeDetails = new EmployeeDetails();
 
 		employeeDetails.setId(new Integer(id));
@@ -58,10 +71,9 @@ public class EmployeeDetailsController {
 		employeeDetails.setLastName(lastName);
 		employeeDetails.setUserName(userName);
 		employeeDetails.setEmail(email);
-		
-		employeeService.updateEmployeeDetail(employeeDetails);
- 
-        return "redirect:/";
-    }
 
+		employeeService.updateEmployeeDetail(employeeDetails);
+
+		return "redirect:/";
+	}
 }
