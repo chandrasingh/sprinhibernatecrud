@@ -9,4 +9,5 @@ public interface EmployeeService {
 	public List<EmployeeDetails> readEmployeeDetail();
 	public void updateEmployeeDetail(EmployeeDetails employee);
 	public void deleteEmployeeDetail(EmployeeDetails employee);
+	public EmployeeDetails getEmployeeDetail(Integer id);
 }

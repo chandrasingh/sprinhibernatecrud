@@ -32,4 +32,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	}
 
+	public EmployeeDetails getEmployeeDetail(Integer id) {
+		return employeeDetailsDao.getEmployeeDetail(id);
+	}
+
 }

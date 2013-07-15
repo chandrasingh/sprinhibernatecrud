@@ -59,7 +59,7 @@ public class EmployeeDetails {
 	}
 	
 	public void setUserName(String value){
-		email = userName;
+		userName = value;
 	}
 	
 	public String getFirstName(){
