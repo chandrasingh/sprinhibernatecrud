@@ -10,21 +10,26 @@ import javax.persistence.Table;
 @Table(name="employees_details")
 public class EmployeeDetails {
 	
+	@Id
+	@Column(name = "id")
+	@GeneratedValue
 	private Integer id;
 	
+	@Column(name="email")
 	private String email;
 	
+	@Column(name="manager_id")
 	private Integer managerId;
 	
+	@Column(name="user_name")
 	private String userName;
 	
+	@Column(name="first_name")
 	private String firstName;
 	
+	@Column(name="last_name")
 	private String lastName;
-	
-	@Id
-	@GeneratedValue
-	@Column(name = "id")
+
 	public Integer getId(){
 		return id;
 	}
@@ -33,7 +38,6 @@ public class EmployeeDetails {
 		id = value;
 	}
 	
-	@Column(name="manager_id")
 	public Integer getManagerId(){
 		return managerId;
 	}
@@ -42,7 +46,6 @@ public class EmployeeDetails {
 		managerId = value;
 	}
 
-	@Column(name="email")
 	public String getEmail(){
 		return email;
 	}
@@ -51,7 +54,6 @@ public class EmployeeDetails {
 		email = value;
 	}
 	
-	@Column(name="user_name")
 	public String getUserName(){
 		return userName;
 	}
@@ -60,7 +62,6 @@ public class EmployeeDetails {
 		email = userName;
 	}
 	
-	@Column(name="first_name")
 	public String getFirstName(){
 		return firstName;
 	}
@@ -69,7 +70,6 @@ public class EmployeeDetails {
 		firstName = value;
 	}
 	
-	@Column(name="last_name")
 	public String getLastName(){
 		return lastName;
 	}

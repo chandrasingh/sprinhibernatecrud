@@ -4,20 +4,18 @@
 <%@ page isELIgnored="false"%>
 </head>
 <body>
-	<c:if test="${!empty ecList}">
+	<c:if test="${!empty employees}">
 		<table class="data">
 			<tr>
-				<th>Date</th>
-				<th>Time</th>
-				<th></th>
-				<th>&nbsp;</th>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>E mail</th>
 			</tr>
-			<c:forEach items="${ecList}" var="ec">
+			<c:forEach items="${employees}" var="employee">
 				<tr>
-					<td>${ec.EC_Date}, ${ec.EC_Time}</td>
-					<td>${ec.EC_enumerator}</td>
-					<td>${ec. EC_Q_1}</td>
-					<td><a href="delete/${ec.id}">delete</a></td>
+					<td>${employee.firstName}</td>
+					<td>${employee.lastName}</td>
+					<td>${employee.email}</td>
 				</tr>
 			</c:forEach>
 		</table>
