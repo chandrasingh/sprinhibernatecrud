@@ -45,8 +45,7 @@ public class EmployeeDetailsController {
 			}
 		}
 
-		List<EmployeeDetails> employeeList = employeeService
-				.readEmployeeDetail();
+		List<EmployeeDetails> employeeList = employeeService.getEmployeeDetail();
 
 		model.addAttribute("employees", employeeList);
 		return "index";
@@ -62,6 +61,8 @@ public class EmployeeDetailsController {
 		String lastName = request.getParameter("lastName");
 		String userName = request.getParameter("userName");
 		String email = request.getParameter("email");
+		
+		System.out.println("managerID: " + managerID);
 
 		EmployeeDetails employeeDetails = new EmployeeDetails();
 
@@ -73,6 +74,28 @@ public class EmployeeDetailsController {
 		employeeDetails.setEmail(email);
 
 		employeeService.updateEmployeeDetail(employeeDetails);
+
+		return "redirect:/";
+	}
+	
+	@RequestMapping(value = "/create", method = RequestMethod.POST)
+	public String create(HttpServletRequest request) {
+		System.out.println("in create");
+
+		String managerID = request.getParameter("managerID");
+		String firstName = request.getParameter("firstName");
+		String lastName = request.getParameter("lastName");
+		String email = request.getParameter("email");
+
+		EmployeeDetails employeeDetails = new EmployeeDetails();
+
+		employeeDetails.setManagerId(new Integer(managerID));
+		employeeDetails.setFirstName(firstName);
+		employeeDetails.setLastName(lastName);
+		employeeDetails.setUserName(email);//this is for internal use. needs to be unique
+		employeeDetails.setEmail(email);
+
+		employeeService.createEmployeeDetail(employeeDetails);
 
 		return "redirect:/";
 	}

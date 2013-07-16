@@ -17,14 +17,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 	public void createEmployeeDetail(EmployeeDetails employee) {
 		employeeDetailsDao.createEmployeeDetail(employee);
 	}
-
-	public List<EmployeeDetails> readEmployeeDetail() {
-		return employeeDetailsDao.readEmployeeDetail();
-	}
-
 	public void updateEmployeeDetail(EmployeeDetails employee) {
 		employeeDetailsDao.updateEmployeeDetail(employee);
-
 	}
 
 	public void deleteEmployeeDetail(EmployeeDetails employee) {
@@ -34,6 +28,14 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	public EmployeeDetails getEmployeeDetail(Integer id) {
 		return employeeDetailsDao.getEmployeeDetail(id);
+	}
+
+	public List<EmployeeDetails> getEmployeeDetail(String parameter, String value) {
+		return employeeDetailsDao.getEmployeeDetail(parameter, value);
+	}
+
+	public List<EmployeeDetails> getEmployeeDetail() {
+		return employeeDetailsDao.getEmployeeDetail();
 	}
 
 }

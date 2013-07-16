@@ -6,8 +6,9 @@ import com.imaginea.model.EmployeeDetails;
 
 public interface EmployeeService {
 	public void createEmployeeDetail(EmployeeDetails employee);
-	public List<EmployeeDetails> readEmployeeDetail();
+	public EmployeeDetails getEmployeeDetail(Integer id);
+	public List<EmployeeDetails> getEmployeeDetail(String parameter, String value);
+	public List<EmployeeDetails> getEmployeeDetail();
 	public void updateEmployeeDetail(EmployeeDetails employee);
 	public void deleteEmployeeDetail(EmployeeDetails employee);
-	public EmployeeDetails getEmployeeDetail(Integer id);
 }

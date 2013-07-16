@@ -21,12 +21,6 @@ public class EmployeeDetailsDAOImpl implements EmployeeDetailsDAO {
 	}
 
 	@Transactional
-	public List<EmployeeDetails> readEmployeeDetail() {
-		System.out.println("in dao readempdetails");
-		return sessionFactory.getCurrentSession().createQuery("from EmployeeDetails").list();
-	}
-
-	@Transactional
 	public void updateEmployeeDetail(EmployeeDetails employee) {		
 		sessionFactory.getCurrentSession().update(employee);
 
@@ -40,6 +34,16 @@ public class EmployeeDetailsDAOImpl implements EmployeeDetailsDAO {
 	@Transactional
 	public EmployeeDetails getEmployeeDetail(Integer id) {
 		return (EmployeeDetails) sessionFactory.getCurrentSession().get(EmployeeDetails.class, id);
+	}
+
+	@Transactional
+	public List<EmployeeDetails> getEmployeeDetail(String parameter, String value) {
+		return sessionFactory.getCurrentSession().createQuery("from EmployeeDetails ed where ed." + parameter + " = '" +value+ "'").list();
+	}
+
+	@Transactional
+	public List<EmployeeDetails> getEmployeeDetail() {
+		return sessionFactory.getCurrentSession().createQuery("from EmployeeDetails").list();
 	}
 
 }
