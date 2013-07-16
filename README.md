@@ -1,0 +1,1 @@
+This is a simple CRUD application using Spring and Hibernate. The sql command to create the mySQL table is in the file script.sql.
