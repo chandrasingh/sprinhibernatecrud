@@ -1,13 +1,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.imaginea.springcrud</groupId>
-  <artifactId>springcrud</artifactId>
-  <packaging>war</packaging>
-  <version>1.0-SNAPSHOT</version>
-  <name>springcrud Maven Webapp</name>
-  <url>http://maven.apache.org</url>
-  <repositories>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.imaginea.springcrud</groupId>
+	<artifactId>springcrud</artifactId>
+	<packaging>war</packaging>
+	<version>1.0-SNAPSHOT</version>
+	<name>springcrud Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+	<repositories>
 		<repository>
 			<id>repository.jboss.org-public</id>
 			<name>JBoss repository</name>
@@ -27,8 +27,20 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
+			<version>4.11</version>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<version>1.8.0.10</version>
+			<type>jar</type>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>2.5</version>
 		</dependency>
 
 		<!-- Spring 3 -->
@@ -131,7 +143,7 @@
 		</dependency>
 
 	</dependencies>
-  <build>
-    <finalName>springcrud</finalName>
-  </build>
+	<build>
+		<finalName>springcrud</finalName>
+	</build>
 </project>

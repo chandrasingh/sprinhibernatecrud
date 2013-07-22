@@ -16,14 +16,13 @@ public class EmployeeDetailsDAOImpl implements EmployeeDetailsDAO {
 	private SessionFactory sessionFactory;
 
 	@Transactional
-	public void createEmployeeDetail(EmployeeDetails employee) {
-		sessionFactory.getCurrentSession().save(employee);
+	public Integer createEmployeeDetail(EmployeeDetails employee) {
+		return (Integer)sessionFactory.getCurrentSession().save(employee);
 	}
 
 	@Transactional
 	public void updateEmployeeDetail(EmployeeDetails employee) {		
 		sessionFactory.getCurrentSession().update(employee);
-
 	}
 
 	@Transactional

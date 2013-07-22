@@ -14,8 +14,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Autowired
 	EmployeeDetailsDAO employeeDetailsDao;
 
-	public void createEmployeeDetail(EmployeeDetails employee) {
-		employeeDetailsDao.createEmployeeDetail(employee);
+	public Integer createEmployeeDetail(EmployeeDetails employee) {
+		return employeeDetailsDao.createEmployeeDetail(employee);
 	}
 	public void updateEmployeeDetail(EmployeeDetails employee) {
 		employeeDetailsDao.updateEmployeeDetail(employee);
